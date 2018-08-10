@@ -3,9 +3,10 @@
 namespace App\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
-class DashboardController
+class DashboardController extends AbstractController
 {
     /**
      * @Route("/", name="homepage")
@@ -14,6 +15,8 @@ class DashboardController
     {
         $number = random_int(0, 100);
 
-        return new Response('Danilka ' . $number . ' boost');
+        return $this->render('dashboard/index.html.twig', [
+            'number' => $number
+        ]);
     }
 }
