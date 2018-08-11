@@ -3,6 +3,8 @@
 {% block title %}{{ 'Dota' }}{% endblock %}
 {% block body %}
     {% for hero in heroes %}
-        <li>{{ hero }}</li>
+        <li>
+            <i class="fa fa-envelope fa-fw"></i> {{ hero }}
+        </li>
     {% endfor %}
 {% endblock %}
