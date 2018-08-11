@@ -19,6 +19,7 @@ class DashboardController extends AbstractController
             'number' => $number
         ]);
     }
+
     /**
      * @Route("/dota", name="dota_page")
      */
