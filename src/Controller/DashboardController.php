@@ -19,4 +19,19 @@ class DashboardController extends AbstractController
             'number' => $number
         ]);
     }
+    /**
+     * @Route("/dota", name="dota_page")
+     */
+    public function dotaPageAction()
+    {
+        $heroes = [
+          'riki',
+          'sven',
+          'shaman'
+        ];
+
+        return $this->render('dota/list.html.twig', [
+            'heroes' => $heroes
+        ]);
+    }
 }

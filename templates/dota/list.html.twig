@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'Dota' }}{% endblock %}
+{% block body %}
+    {% for hero in heroes %}
+        <li>{{ hero }}</li>
+    {% endfor %}
+{% endblock %}
