@@ -1,6 +1,36 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ 'Dashboard' }}{% endblock %}
+{% block title %}{{ 'Dashboard' | trans() }}{% endblock %}
+
 {% block body %}
-    {{ number }}
+    <div class="panel panel-default no-bg">
+        <div id="carousel" class="carousel slide" data-ride="carousel">
+            <!-- Индикаторы -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel" data-slide-to="1"></li>
+                <li data-target="#carousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="{{ asset('images/terrorblade-corousel.jpg') }}" alt="terrorblade-corousel">
+                </div>
+                <div class="item">
+                    <img src="{{ asset('images/outworld-devourer-corousel.jpg') }}" alt="outworld-devourer-corousel">
+                </div>
+                <div class="item">
+                    <img src="{{ asset('images/sf-corousel.jpg') }}" alt="sf-corousel">
+                </div>
+            </div>
+            <!-- Элементы управления -->
+            <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Prev</span>
+            </a>
+            <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
 {% endblock %}
