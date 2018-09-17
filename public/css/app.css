@@ -305,3 +305,9 @@ a:hover {
 .page-header {
     border-bottom: 1px solid #47a78b;
 }
+.panel-default {
+    border-color: #47a78b;
+}
+.no-bg {
+    background: none;
+}

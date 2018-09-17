@@ -60,10 +60,10 @@
                                 <!-- /input-group -->
                             </li>
                             <li>
-                                <a href="/"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                                <a href="/"><i class="fa fa-dashboard fa-fw"></i> {{ 'Dashboard' | trans() }}</a>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
+                                <a href="#"><img src="{{ asset('favicon.ico') }}" width="20px"></img> Dota 2<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
                                         <a href="flot.html">Flot Charts</a>
@@ -117,11 +117,11 @@
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Dashboard</h1>
+                        <h1 class="page-header">{{ block('title') }}</h1>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-3 col-md-6">
+                <div class="container-fluid">
+                    <div class="row">
                         {% block body %}{% endblock %}
                     </div>
                 </div>
