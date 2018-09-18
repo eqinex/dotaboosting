@@ -292,6 +292,10 @@ table.dataTable thead .sorting:after {
 .panel-yellow a:hover {
     color: #df8a13;
 }
+.panel .carousel .carousel-inner img {
+    width: 1280px;
+    height: 720px;
+}
 .navbar-default {
     background-color: #1d1d1d;
     border-color: #47a78b;

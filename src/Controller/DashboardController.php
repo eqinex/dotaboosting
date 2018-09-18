@@ -11,28 +11,8 @@ class DashboardController extends AbstractController
     /**
      * @Route("/", name="homepage")
      */
-    public function homepage()
+    public function homepageAction()
     {
-        $number = random_int(0, 100);
-
-        return $this->render('dashboard/index.html.twig', [
-            'number' => $number
-        ]);
-    }
-
-    /**
-     * @Route("/dota", name="dota_page")
-     */
-    public function dotaPageAction()
-    {
-        $heroes = [
-          'riki',
-          'sven',
-          'shaman'
-        ];
-
-        return $this->render('dota/list.html.twig', [
-            'heroes' => $heroes
-        ]);
+        return $this->render('dashboard/index.html.twig');
     }
 }
