@@ -29,6 +29,19 @@ body {
 .navbar-default .navbar-brand:hover {
     color: #3d876e;
 }
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+    border-color: #47a78b;
+}
+.navbar-default .navbar-toggle {
+    border-color: #47a78b;
+}
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background-color: #262626;
+}
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+    background-color: #262626;
+    border-color: #47a78b;
+}
 .navbar-top-links {
     margin-right: 0;
 }
@@ -54,6 +67,15 @@ body {
 }
 .navbar-top-links .dropdown-menu li a div {
     white-space: normal;
+}
+.dropdown-menu {
+    background-color: #262626;
+}
+.dropdown-menu>li>a {
+    color: #47a78b;
+}
+.dropdown-menu .divider {
+    background-color: #47a78b;
 }
 .navbar-top-links .dropdown-messages,
 .navbar-top-links .dropdown-tasks,
@@ -102,6 +124,9 @@ body {
 }
 .sidebar .nav-third-level li a {
     padding-left: 52px;
+}
+.sidebar ul li img {
+    margin-right: 20px;
 }
 .nav>li>a:focus, .nav>li>a:hover {
     background-color: #262626;
@@ -300,6 +325,9 @@ table.dataTable thead .sorting:after {
     background-color: #1d1d1d;
     border-color: #47a78b;
 }
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #47a78b;
+}
 a {
     color: #47a78b;
 }
@@ -314,4 +342,24 @@ a:hover {
 }
 .no-bg {
     background: none;
+}
+.col-align {
+    float: none;
+    display: inline-block;
+}
+.col-align--top {
+     vertical-align: top;
+}
+.col-align--center {
+     vertical-align: middle;
+}
+.col-align--bottom {
+     vertical-align: bottom;
+ }
+.v-center {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
