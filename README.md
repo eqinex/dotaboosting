@@ -26,4 +26,10 @@
 `db_name` - имя базы данных.
 
 **6**.Создайте базу данных с помощью команды:
->git bin/console doctrine:database:create
+>php bin/console doctrine:database:create
+
+**7**.Запустить сервер:
+>php bin/console server:run
+
+**8**.Создать пользователя-суперадмина:
+>php bin/console fos:user:create --super-admin
