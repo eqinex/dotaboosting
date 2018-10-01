@@ -1,15 +1,25 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: MazitovTR
- * Date: 01.10.2018
- * Time: 12:30
- */
 
 namespace App\Controller;
 
+use App\Entity\User;
+use App\Repository\RepositoryAwareTrait;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 
-class ProfileController
+class ProfileController extends AbstractController
 {
+    use RepositoryAwareTrait;
 
+    /**
+     * @Route("/profile", name="profile")
+     */
+    public function detailsAction(Request $request)
+    {
+        /** @var User $user */
+        $user = $this->getUser();
+
+        return $this->render('profile/index.html.twig');
+    }
 }
