@@ -38,6 +38,13 @@ class User extends BaseUser
      * @ORM\Column(name="last_name", type="string", length=255, nullable=true)
      */
     protected $lastName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="image_url", type="text", nullable=true)
+     */
+    protected $imageUrl;
     
     /**
      * Get id
@@ -89,5 +96,21 @@ class User extends BaseUser
     {
         $this->lastName = $lastName;
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImageUrl()
+    {
+        return $this->imageUrl;
+    }
+
+    /**
+     * @param string $imageUrl
+     */
+    public function setImageUrl($imageUrl)
+    {
+        $this->imageUrl = $imageUrl;
     }
 }

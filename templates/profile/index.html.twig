@@ -2,5 +2,28 @@
 
 {% block title %}{{ "Profile" | trans() }}{% endblock %}
 {% block body %}
-
+    <form action="{{ path('profile') }}" class="form-horizontal pill" method="post" enctype="multipart/form-data" id="edit-profile">
+        <div class="panel panel-default no-bg b-gray-dark">
+            <div class="panel-body">
+                <p class="text-center">
+                    {% if user.imageUrl is not null %}
+                        <img src="{{ user.imageUrl }}" style="width: 125px" />
+                    {% else %}
+                        <i class="fa fa-3x fa-user text-gray-light text-center m-t-2"></i>
+                        <br>
+                    {% endif %}
+                </p>
+                <p class="text-center">
+                    <a href="javascript: void(0)">
+                        <input style="margin-left: 30px" type="file" name="user_image"/>
+                    </a>
+                </p>
+                <p class="small text-center">JPG, GIF, PNG. Файл не более 10MB и размером 400 x 300px.</p>
+                <p></p>
+            </div>
+            <div class="panel-footer text-right">
+                <button type="submit" class="btn btn-primary">Обновить профиль</button>
+            </div>
+        </div>
+    </form>
 {% endblock %}
