@@ -344,6 +344,13 @@ a:hover {
 .panel-default .panel-heading {
     border-color: #47a78b;
 }
+.panel-default>.panel-heading {
+    background-color: #47a78b;
+}
+.panel-footer {
+    background-color: #47a78b;
+    border-top: 1px solid #47a78b;
+}
 .no-bg {
     background: none;
 }

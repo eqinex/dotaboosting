@@ -24,6 +24,14 @@ class ProfileController extends AbstractController
             $profile = $request->get('profile');
             $userImage = $request->files->get('user_image');
 
+            if (!empty($profile['firstName'])) {
+                $user->setFirstName($profile['firstName']);
+            }
+
+            if (!empty($profile['lastName'])) {
+                $user->setLastName($profile['lastName']);
+            }
+
             if ($userImage instanceof UploadedFile) {
                 $imageUrl = $this->moveFile($userImage, md5(time() . $user->getUsername()));
 

@@ -1,9 +1,15 @@
 # translations/messages.ru.yaml
 
 Boosting: Бустыч
+
 Profile: Профиль
 Sign up: Зарегистрироваться
 Log in: Авторизоваться
+Edit profile: Редактировать профиль
+Last name: Фамилия
+First name: Имя
+Change last name: Изменить фамилию
+Changle first name: Изменить имя
 
 Dashboard: Обзор
 Order a boost rating: Заказать буст рейтинга
