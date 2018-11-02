@@ -74,6 +74,6 @@ class ProfileController extends AbstractController
         $thumb->resizeImage(400, 300, \Imagick::FILTER_LANCZOS, 1, 0);
         $thumb->writeImage($fileUrl);
 
-        return $this->getParameter('user_images_dir')  . '/' . $fileName;
+        return '/public/user_images/' . $fileName;
     }
 }
