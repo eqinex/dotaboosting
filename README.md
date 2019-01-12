@@ -28,6 +28,8 @@
 **6**.Создайте базу данных с помощью команды:
 >php bin/console doctrine:database:create
 
+>php bin/console doctrine:schema:update --force
+
 **7**.Запустить сервер:
 >php bin/console server:run
 
