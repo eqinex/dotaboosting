@@ -2,7 +2,9 @@
 
 namespace App\Traits;
 
+use App\Entity\DotaBoostOrder;
 use App\Entity\User;
+use App\Repository\DotaBoostOrderRepository;
 use App\Repository\UserRepository;
 
 trait RepositoryAwareTrait
@@ -21,5 +23,13 @@ trait RepositoryAwareTrait
     protected function getUserRepository()
     {
         return $this->getDoctrine()->getRepository(User::class);
+    }
+
+    /**
+     * @return DotaBoostOrderRepository
+     */
+    protected function getDotaBoostOrderRepository()
+    {
+        return $this->getDoctrine()->getRepository(DotaBoostOrder::class);
     }
 }

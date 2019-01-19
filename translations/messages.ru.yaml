@@ -18,3 +18,16 @@ Order list: Список заказов
 Clean up the low priority: Отмыть лоу приоритет
 Buy account Dota 2: Купить аккаунт Dota 2
 Order a calibration: Заказать калибровку
+
+Code: Код
+Status: Статус
+Title: Заголовок
+Description: Описание
+Created at: Дата создания
+Start at: Дата начала
+End at: Дата завершения
+Owner: Владелец
+Responsible: Ответственный
+
+New order: Новый заказ
+No responsible user: Нет ответсвенного

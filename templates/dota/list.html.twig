@@ -1,6 +1,62 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ 'Dota' }}{% endblock %}
+{% block title %}{{ 'Order list' | trans() }}{% endblock %}
 {% block body %}
-    
+    <div class="panel panel-default no-bg  b-gray-dark">
+        <div class="panel-body">
+            <form class="form-inline filter-form" method="get" action="{{ path('dota_boost_list') }}">
+                <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target=".addDocumentModal"><i class="fa fa-plus"></i> {{ 'New order' | trans() }}</button>
+            </form>
+        </div>
+    </div>
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th class="small text-muted text-uppercase"><strong>{{ 'Code' | trans() }}</strong></th>
+            <th class="small text-muted text-uppercase"><strong>{{ 'Status' | trans() }}</strong></th>
+            <th class="small text-muted text-uppercase"><strong>{{ 'Title' | trans() }}</strong></th>
+            <th class="small text-muted text-uppercase"><strong>{{ 'Description' | trans() }}</strong></th>
+            <th class="small text-muted text-uppercase"><strong>{{ 'Created at' | trans() }}</strong></th>
+            <th class="small text-muted text-uppercase"><strong>{{ 'Owner' | trans() }}</strong></th>
+            <th class="small text-muted text-uppercase"><strong>{{ 'Responsible' | trans() }}</strong></th>
+            <th class="small text-muted text-uppercase"><strong>{{ 'Start at' | trans() }}</strong></th>
+            <th class="small text-muted text-uppercase"><strong>{{ 'End at' | trans() }}</strong></th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for order in orders %}
+            <tr>
+                <td>
+                   <span>{{ order.code }}</span>
+                </td>
+                <td>
+                    <span>{{ order.status }}</span>
+                </td>
+                <td>
+                    <span>{{ order.title }}</span>
+                </td>
+                <td>
+                    <span>{{ order.description }}</span>
+                </td>
+                <td>
+                    <span>{{ order.createdAt | date('d.m.Y') }}</span>
+                </td>
+                <td>
+                    <span>{{ order.owner.username }}</span>
+                </td>
+                <td>
+                    <span>{{ order.responsibleUser ? order.responsibleUser.username : 'No responsible user' | trans() }}</span>
+                </td>
+                <td>
+                    <span>{{ order.startAt ? order.startAt | date('d.m.Y') : '-' }}</span>
+                </td>
+                <td>
+                    <span>{{ order.endAt ? order.endAt | date('d.m.Y') : '-' }}</span>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
