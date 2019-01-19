@@ -14,6 +14,7 @@ class DotaController extends AbstractController
     public function boostListAction(Request $request)
     {
 
+
         return $this->render('dota/list.html.twig');
     }
 }
