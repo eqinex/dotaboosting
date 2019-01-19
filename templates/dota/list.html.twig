@@ -22,6 +22,7 @@
             <th class="small text-muted text-uppercase"><strong>{{ 'Responsible' | trans() }}</strong></th>
             <th class="small text-muted text-uppercase"><strong>{{ 'Start at' | trans() }}</strong></th>
             <th class="small text-muted text-uppercase"><strong>{{ 'End at' | trans() }}</strong></th>
+            <th class="small text-muted text-uppercase"><strong>{{ 'Action' | trans() }}</strong></th>
         </tr>
         </thead>
         <tbody>
@@ -55,6 +56,7 @@
                 <td>
                     <span>{{ order.endAt ? order.endAt | date('d.m.Y') : '-' }}</span>
                 </td>
+                <td></td>
             </tr>
         {% endfor %}
         </tbody>
