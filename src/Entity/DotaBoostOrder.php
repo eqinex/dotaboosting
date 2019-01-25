@@ -12,11 +12,16 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * DotaBoostOrder
  *
- * @ORM\Table(name="dota_boosting")
+ * @ORM\Table(name="dota_boost_order")
  * @ORM\Entity(repositoryClass="App\Repository\DotaBoostOrderRepository")
  */
 class DotaBoostOrder
 {
+    const DOTA_BOOST_ORDER_STATUS_NEW = 1;
+    const DOTA_BOOST_ORDER_STATUS_IN_PROGRESS = 2;
+    const DOTA_BOOST_ORDER_STATUS_DONE = 3;
+    const DOTA_BOOST_ORDER_STATUS_CANCELLED = 4;
+
     /**
      * @var int
      *
@@ -29,7 +34,7 @@ class DotaBoostOrder
     /**
      * @var string
      *
-     * @ORM\Column(name="code", type="string", length=255, unique=true)
+     * @ORM\Column(name="code", type="string", length=255, unique=true, nullable=true)
      */
     protected $code;
 
@@ -38,7 +43,7 @@ class DotaBoostOrder
      *
      * @ORM\Column(name="status", type="integer")
      */
-    private $status = 0;
+    private $status = 1;
 
     /**
      * @var string
@@ -86,6 +91,7 @@ class DotaBoostOrder
     public function __construct()
     {
         $this->createdAt = new \DateTime();
+        $this->status = self::DOTA_BOOST_ORDER_STATUS_NEW;
     }
 
     /**
@@ -143,12 +149,16 @@ class DotaBoostOrder
         return $this->title;
     }
 
+
     /**
      * @param string $title
+     * @return DotaBoostOrder
      */
     public function setTitle($title)
     {
         $this->title = $title;
+
+        return $this;
     }
 
     /**
@@ -161,10 +171,13 @@ class DotaBoostOrder
 
     /**
      * @param string $description
+     * @return DotaBoostOrder
      */
     public function setDescription($description)
     {
         $this->description = $description;
+
+        return $this;
     }
 
     /**
@@ -287,5 +300,18 @@ class DotaBoostOrder
     public function __toString()
     {
         return $this->getTitle();
+    }
+
+    /**
+     * @return array
+     */
+    public static function getStatusesList()
+    {
+        return [
+            self::DOTA_BOOST_ORDER_STATUS_NEW => 'new',
+            self::DOTA_BOOST_ORDER_STATUS_IN_PROGRESS => 'in_progress',
+            self::DOTA_BOOST_ORDER_STATUS_DONE => 'done',
+            self::DOTA_BOOST_ORDER_STATUS_CANCELLED => 'cancelled',
+        ];
     }
 }

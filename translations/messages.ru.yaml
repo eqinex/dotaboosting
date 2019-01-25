@@ -2,6 +2,17 @@
 
 Boosting: Бустыч
 Our team: Наша команда
+
+Action: Действия
+New order: Новый заказ
+Create: Создать
+Close: Закрыть
+
+new: Новый
+in_progress: В процессе
+done: Завершен
+cancelled: Отменен
+
 Code: Код
 Status: Статус
 Title: Заголовок
@@ -11,7 +22,6 @@ Start at: Дата начала
 End at: Дата завершения
 Owner: Владелец
 Responsible: Ответственный
-Action: Действия
 
 Profile: Профиль
 Sign up: Зарегистрироваться
@@ -29,5 +39,4 @@ Clean up the low priority: Отмыть лоу приоритет
 Buy account Dota 2: Купить аккаунт Dota 2
 Order a calibration: Заказать калибровку
 
-New order: Новый заказ
 No responsible user: Нет ответственного

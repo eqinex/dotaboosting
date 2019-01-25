@@ -4,8 +4,10 @@
 {% block body %}
     <div class="panel panel-default no-bg  b-gray-dark">
         <div class="panel-body">
-            <form class="form-inline filter-form" method="get" action="{{ path('dota_boost_list') }}">
-                <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target=".addDocumentModal"><i class="fa fa-plus"></i> {{ 'New order' | trans() }}</button>
+            <form class="form-inline filter-form" method="get" action="{{ path('dota_boost_orders_list') }}">
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target=".addDotaBoostOrderModal"><i class="fa fa-plus"></i> {{ 'New order' | trans() }}</button>
+                {% endif %}
             </form>
         </div>
     </div>
@@ -61,4 +63,18 @@
         {% endfor %}
         </tbody>
     </table>
+
+    {% import 'dota/boost_orders/partial/form.html.twig' as form %}
+
+    {% set addDotaBoostOrderVars = {
+        'class': 'addDotaBoostOrderModal',
+        'formId': 'addDotaBoostOrderForm',
+        'title': 'New order',
+        'content': form.inputs(),
+        'formAction': path('add_dota_boost_order'),
+        'submitTitle': 'Create'
+    } %}
+
+    {% include 'partial/modal.html.twig' with addDotaBoostOrderVars %}
+
 {% endblock %}
