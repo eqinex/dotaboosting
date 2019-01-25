@@ -1,0 +1,14 @@
+{% macro inputs() %}
+    <input type="hidden" class="form-control dota-boost-order-id" value="" name="id">
+
+    <div class="form-group">
+        <label>{{ 'Title' | trans() }}</label>
+        <input type="text" class="form-control dota-boost-order-title" placeholder="{{ 'Title' | trans() }}" name="dotaBoostOrder[title]" required>
+    </div>
+
+    <div class="form-group">
+        <label>{{ 'Description' | trans() }}</label>
+        <textarea class="form-control dota-boost-order-description" rows="3" placeholder="{{ 'Description' | trans() }}" name="dotaBoostOrder[description]"></textarea>
+    </div>
+
+{% endmacro %}
