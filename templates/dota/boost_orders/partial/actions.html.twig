@@ -1,0 +1,14 @@
+<ul class="dropdown-menu dropdown-menu-right">
+    {% if order.isOwner(app.user) %}
+        <li>
+            <a href=""
+               class="edit-dota-boost-order"
+               data-href="{{ path('edit_dota_boost_order', {'id': order.id}) }}"
+               data-title="{{ order.title }}"
+               data-description="{{ order.description }}"
+               data-toggle="modal"
+               data-target=".editDotaBoostOrderModal"
+            ><i class="fa fa-fw fa-pencil m-r-1"></i> {{ 'Edit' | trans() }}</a>
+        </li>
+    {% endif %}
+</ul>

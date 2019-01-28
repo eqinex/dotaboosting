@@ -24,7 +24,9 @@
             <th class="small text-muted text-uppercase"><strong>{{ 'Responsible' | trans() }}</strong></th>
             <th class="small text-muted text-uppercase"><strong>{{ 'Start at' | trans() }}</strong></th>
             <th class="small text-muted text-uppercase"><strong>{{ 'End at' | trans() }}</strong></th>
-            <th class="small text-muted text-uppercase"><strong>{{ 'Action' | trans() }}</strong></th>
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <th class="small text-muted text-uppercase"><strong>{{ 'Action' | trans() }}</strong></th>
+            {% endif %}
         </tr>
         </thead>
         <tbody>
@@ -35,7 +37,7 @@
                    <span>{{ order.code }}</span>
                 </td>
                 <td>
-                    <span>{{ order.status }}</span>
+                    <span>{{ order.statusesList()[order.status] | trans() }}</span>
                 </td>
                 <td>
                     <span>{{ order.title }}</span>
@@ -58,7 +60,16 @@
                 <td>
                     <span>{{ order.endAt ? order.endAt | date('d.m.Y') : '-' }}</span>
                 </td>
-                <td></td>
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <td>
+                        <div class="dropdown">
+                            <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                <i class="fa fa-fw fa-gear"></i> <span class="caret"></span>
+                            </button>
+                            {% include 'dota/boost_orders/partial/actions.html.twig' %}
+                        </div>
+                    </td>
+                {% endif %}
             </tr>
         {% endfor %}
         </tbody>
@@ -75,6 +86,15 @@
         'submitTitle': 'Create'
     } %}
 
+    {% set editDotaBoostOrderVars = {
+        'class': 'editDotaBoostOrderModal',
+        'formId': 'editDotaBoostOrderForm',
+        'title': 'Edit order',
+        'content': form.inputs(),
+        'submitTitle': 'Save'
+    } %}
+
     {% include 'partial/modal.html.twig' with addDotaBoostOrderVars %}
+    {% include 'partial/modal.html.twig' with editDotaBoostOrderVars %}
 
 {% endblock %}

@@ -13,8 +13,8 @@
         {% endblock %}
     </head>
     <body>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
         <div class="wrapper">
-
             <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -228,10 +228,8 @@
                 </div>
             </div>
         </div>
-        <!-- /#wrapper -->
-
+    
         {% block javascripts %}
-            <script src="{{ asset('js/jquery.min.js') }}"></script>
             <script src="{{ asset('js/bootstrap.min.js') }}"></script>
             <script src="{{ asset('js/metisMenu.min.js') }}"></script>
             <script src="{{ asset('js/main.js') }}"></script>
