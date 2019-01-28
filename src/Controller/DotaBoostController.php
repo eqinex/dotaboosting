@@ -60,6 +60,26 @@ class DotaBoostController extends AbstractController
     }
 
     /**
+     * @Route("/dota/boost-orders/{id}/edit", name="edit_dota_boost_order")
+     */
+    public function editDotaBoostOrderAction(Request $request)
+    {
+        $dotaBoostOrderId = $request->get('id');
+        /** @var DotaBoostOrder $dotaBoostOrder */
+        $dotaBoostOrder = $this->getDotaBoostOrderRepository()->find($dotaBoostOrderId);
+        $dotaBoostOrderDetails = $request->get('dotaBoostOrder');
+        $user = $this->getUser();
+
+        if (!$user) {
+            return $this->redirect($request->headers->get('referer'));
+        }
+
+        $this->buildDotaBoostOrder($dotaBoostOrder, $dotaBoostOrderDetails);
+
+        return $this->redirect($request->headers->get('referer'));
+    }
+
+    /**
      * @param DotaBoostOrder $dotaBoostOrder
      * @param $dotaBoostOrderDetails
      * @return DotaBoostOrder
