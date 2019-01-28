@@ -11,4 +11,17 @@
         <textarea class="form-control dota-boost-order-description" rows="3" placeholder="{{ 'Description' | trans() }}" name="dotaBoostOrder[description]"></textarea>
     </div>
 
+    <script>
+        $(document).ready(function () {
+            $('.edit-dota-boost-order').bind('click', function () {
+                var editDotaBoostOrderForm = $('#editDotaBoostOrderForm');
+
+                editDotaBoostOrderForm.attr('action', $(this).data('href'));
+                editDotaBoostOrderForm.find('.dota-boost-order-id').val($(this).data('id'));
+                editDotaBoostOrderForm.find('.dota-boost-order-title').val($(this).data('title'));
+                editDotaBoostOrderForm.find('.dota-boost-order-description').val($(this).data('description'));
+            });
+        });
+    </script>
+
 {% endmacro %}
